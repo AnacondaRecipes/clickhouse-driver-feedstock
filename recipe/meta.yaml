@@ -19,17 +19,17 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - pip
     - cython
-    - python
-
+    - pip
+    - python >=3.4.*,<4
+    - setuptools
+    - wheel
   run:
-    - python
+    # 6/7/2021: Drop support Python 2.7
+    - python >=3.4.*,<4
     - six
     - pytz
-    - tzlocal
-    - ipaddress  # [py27]
-    - enum34  # [py27]
+    - tzlocal <3.0
 
 test:
   imports:
@@ -46,6 +46,8 @@ test:
 
 about:
   home: https://github.com/mymarilyn/clickhouse-driver
+  doc_url: https://clickhouse-driver.readthedocs.io/
+  dev_url: https://github.com/mymarilyn/clickhouse-driver
   license: MIT
   summary: Python driver with native interface for ClickHouse
   license_family: MIT
