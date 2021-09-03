@@ -21,12 +21,12 @@ requirements:
   host:
     - cython
     - pip
-    - python >=3.4.*,<4
+    - python
     - setuptools
     - wheel
   run:
     # 6/7/2021: Drop support Python 2.7
-    - python >=3.4.*,<4
+    - python
     - six
     - pytz
     - tzlocal <3.0
