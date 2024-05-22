@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: True  # [py<37]
 
 requirements:
@@ -49,6 +49,7 @@ about:
   dev_url: https://github.com/mymarilyn/clickhouse-driver
   license: MIT
   summary: Python driver with native interface for ClickHouse
+  description: ClickHouse Python Driver with native interface support
   license_family: MIT
   license_file: LICENSE
 
