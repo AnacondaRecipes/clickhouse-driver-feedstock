@@ -1,6 +1,6 @@
 {% set name = "clickhouse-driver" %}
-{% set version = "0.2.7" %}
-{% set sha256 = "299cfbe6d561955d88eeab6e09f3de31e2f6daccc6fdd904a59e46357d2d28d9" %}
+{% set version = "0.2.9" %}
+{% set sha256 = "050ea4870ead993910b39e7fae965dc1c347b2e8191dcd977cd4b385f9e19f87" %}
 
 package:
   name: {{ name|lower }}
@@ -29,6 +29,10 @@ requirements:
     - python
     - pytz
     - tzlocal
+  run_constrained:
+    - clickhouse-cityhash >=1.0.2.1 # extra:lz4
+    - numpy >=1.12.0 # extra:numpy
+    - pandas >=0.24.0 # extra:numpy
 
 test:
   imports:
