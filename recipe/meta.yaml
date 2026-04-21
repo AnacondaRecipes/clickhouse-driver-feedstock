@@ -1,6 +1,6 @@
 {% set name = "clickhouse-driver" %}
-{% set version = "0.2.9" %}
-{% set sha256 = "050ea4870ead993910b39e7fae965dc1c347b2e8191dcd977cd4b385f9e19f87" %}
+{% set version = "0.2.10" %}
+{% set sha256 = "925fc6ecda1e5314e3f03bcb493955c068b070cdba221fb8ce27329ee8a7f71b" %}
 
 package:
   name: {{ name|lower }}
@@ -8,13 +8,13 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/c/clickhouse-driver/clickhouse_driver-0.2.10.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<37]
+  skip: true  # [py<37]
 
 requirements:
   build:
@@ -30,9 +30,9 @@ requirements:
     - pytz
     - tzlocal
   run_constrained:
-    - clickhouse-cityhash >=1.0.2.1 # extra:lz4
-    - numpy >=1.12.0 # extra:numpy
-    - pandas >=0.24.0 # extra:numpy
+    - clickhouse-cityhash >=1.0.2.1
+    - numpy >=1.12.0
+    - pandas >=0.24.0
 
 test:
   imports:
