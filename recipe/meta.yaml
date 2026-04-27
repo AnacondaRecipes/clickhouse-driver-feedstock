@@ -1,15 +1,13 @@
 {% set name = "clickhouse-driver" %}
-{% set version = "0.2.9" %}
-{% set sha256 = "050ea4870ead993910b39e7fae965dc1c347b2e8191dcd977cd4b385f9e19f87" %}
+{% set version = "0.2.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 925fc6ecda1e5314e3f03bcb493955c068b070cdba221fb8ce27329ee8a7f71b
 
 build:
   number: 0
@@ -18,6 +16,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
   host:
     - cython
@@ -49,13 +48,13 @@ test:
 
 about:
   home: https://github.com/mymarilyn/clickhouse-driver
-  doc_url: https://clickhouse-driver.readthedocs.io/
-  dev_url: https://github.com/mymarilyn/clickhouse-driver
   license: MIT
-  summary: Python driver with native interface for ClickHouse
-  description: ClickHouse Python Driver with native interface support
   license_family: MIT
   license_file: LICENSE
+  summary: Python driver with native interface for ClickHouse
+  description: ClickHouse Python Driver with native interface support
+  doc_url: https://clickhouse-driver.readthedocs.io
+  dev_url: https://github.com/mymarilyn/clickhouse-driver
 
 extra:
   recipe-maintainers:
